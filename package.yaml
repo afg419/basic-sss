@@ -1,0 +1,78 @@
+name:                sss
+version:             0.1.0.0
+github:              "githubuser/sss"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2019 Author name here"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/sss#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- modular-arithmetic
+- random
+- primes
+- protolude
+
+library:
+  source-dirs: src
+
+default-extensions:
+  - NoImplicitPrelude
+  - ConstraintKinds
+  - DataKinds
+  - DeriveGeneric
+  - EmptyCase
+  - FlexibleContexts
+  - FlexibleInstances
+  - GADTs
+  - GeneralizedNewtypeDeriving
+  - LambdaCase
+  - NamedFieldPuns
+  - MultiParamTypeClasses
+  - MultiWayIf
+  - OverloadedStrings
+  - RankNTypes
+  - StandaloneDeriving
+  - TupleSections
+  - TypeApplications
+  - TypeFamilies
+  - TypeOperators
+  - TypeSynonymInstances
+
+executables:
+  sss-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -Wno-implicit-prelude
+    - -WGADTs
+
+    dependencies:
+    - sss
+
+tests:
+  sss-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - sss
